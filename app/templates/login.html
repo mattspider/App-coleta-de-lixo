@@ -1,0 +1,65 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/login.css'%}">
+    <script src="{% static 'javascript.js' %}"></script>
+    <title>Login</title>
+</head>
+
+
+<body>
+    <header>
+        <ul>
+            <li>
+                <img src="{% static 'img/logo.png'%}" alt="">
+
+                <div class="options">
+                    <a href="{% url 'main' %}">Pagina inicial</a>
+                    <a href="{% url 'quest' %}">Cadastrar</a>
+                </div>
+            </li>
+        </ul>
+    </header>
+    {% if messages %}
+        {% for message in messages %}
+            <script>alert("{{message}}");</script>
+        {% endfor %}
+    {% endif %}
+
+    <div class="quadrado">
+        <div class="container">
+            <div class="header">
+                <h2>Entrar</h2>
+            </div>
+            
+            <form id="form" class="form" method="POST">{% csrf_token %}
+                <div class="form-control ">
+                    <label for="username">Nome de usuário</label>
+                    <input type="text" name="usuario" id="usuario" placeholder="Digite seu nome de usuário...">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <i class="fas fa-check-circle"></i>
+                </div>
+    
+    
+                <div class="form-control">
+                    <label for="password">Senha</label>
+                    <input type="password" id="senha" name="senha" placeholder="Digite sua senha...">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <i class="fas fa-check-circle"></i>
+
+                </div>
+    
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    
+        <script src="https://kit.fontawesome.com/a5d741ba54.js" crossorigin="anonymous"></script>
+        
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,51 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/cadastroAnun.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    {% if messages %}
+        {% for message in messages %}
+            <script>alert("{{message}}");</script>
+        {% endfor %}
+    {% endif %}
+
+    <header>
+        <ul>
+            <li>
+                <img src="{% static 'img/logo.png'%}" alt="">
+
+                <div class="options">
+                    <a href="{% url 'main' %}">Pagina inicial</a>
+                    <a href="{% url 'login' %}">Logar</a>
+                </div>
+            </li>
+        </ul>
+    </header>
+
+    <div class="infos">
+        <form action="" method="POST" class="formulario">{% csrf_token %}
+            <h2>Cadastro Anunciante</h2>
+            <label for="" class="">Nome de Usuário</label>
+            <input type="text" name="usuario" class="inp" placeholder="Insira o nome de usuario...">
+            <label for="">CPF</label>
+            <input type="number" name="cpf" class="inp" placeholder="Insira o cpf...">
+            <label for="">email</label>
+            <input type="email" name="email" id="" class="inp" placeholder="Insira o email...">
+            <label for="">senha</label>
+            <input type="password" name="senha" class="inp" placeholder="Insira a senha...">
+            <label for="">repita a senha</label>
+            <input type="password" name="repeat_senha" class="inp" placeholder="Insira a senha novamente...">
+            <button type="submit" class="sub">cadastrar</button>
+        </form>
+    </div>
+
+</body>
+</html>
+

@@ -1,0 +1,69 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/sobre.css'%}">
+    <title>Sobre</title>
+</head>
+<body>
+
+    <header>
+        <ul>
+            <li class="nav">
+                <img src="{% static 'img/logo.png'%}" alt="">
+
+                <div class="options">
+                    {% if user.is_authenticated %}
+
+                            {% if check == 'True' %} 
+
+
+                                <a href="{% url 'meus_anuncios' %}" class="link">Meus Anúncios</a>
+                                <a href="{% url 'anunciar' %}" class="link">Anunciar</a>
+
+                            {%endif%}
+
+
+                        <a href="{% url 'main' %}" class="link">Pagina inicial</a>
+                        <a href="{% url 'logout' %}" class="link">Deslogar</a>
+                        
+                    {%else%}
+                        <a href="{% url 'quest' %}" class="link">Cadastrar</a>
+                        <a href="{% url 'login' %}" class="link">Logar</a>
+                    {%endif%}
+                </div>
+            </li>
+        </ul>
+    </header>
+
+    <main>
+        <div class="anuncios">
+            <h1 class="sobre">Sobre o projeto</h1>
+            <div class="project">
+                
+                <img src="https://www.sescooprs.coop.br/app/uploads/2020/06/2020-06-05-cooperativas-desenvolvem-acoes-meio-ambiente-2-730x440.png" alt="" class="imagem">
+                <p>O projeto busca comunicar pessoas que separam seu lixo categoricamente, <br>
+                     como empresas de coleta seletiva que tem dificuldade em encontrar esses tipos de matéria, facilitando a comunicação entre esses dois extremos.</p>
+            </div>
+
+    
+            <h1>Implementações futuras</h1>
+            <div class="project">
+                <img src="https://fia.com.br/blog/wp-content/uploads/2019/09/meio-ambiente-o-que-e-importancia-composicao-presxervacao-730x483.jpg" alt="" class="imagem">
+                <p>Chat de texto, Cadastro de coletores independentes e cooperativas, barra de busca, mapa totalmente interativo com o sistema de gps</p>
+            </div>
+
+            <h1>Problemática</h1>
+            <div class="project">
+                
+                <img src="https://fabiobarros.com/wp-content/uploads/2020/09/img-projeto-municipal-de-desenvolvimento-meio-ambiente.jpg" alt="" class="imagem">
+                <p>Empresas que têm dificuldade em achar áreas estratégicas para atuar por ser um nicho, já os anunciantes têm dificuldade em encontrar empresas atuantes na área, com o aplicativo totalmente gratuito os dois lados seriam beneficiados podendo se comunicar de forma fácil e rápida
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,141 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela inicial</title>
+    <link rel="stylesheet" href="{% static 'css/main.css'%}">
+    <link rel="stylesheet" href="{%static 'javascript.js'%}">
+</head>
+<body>
+    {% if messages %}
+        {% for message in messages %}
+            <script>alert("{{message}}");</script>
+        {% endfor %}
+    {% endif %}
+    <header>
+        <ul>
+            <li class="nav">
+                <img src="{% static 'img/logo.png'%}" alt="">
+
+                <div class="options">
+                    {% if user.is_authenticated %}
+
+                            {% if check == 'True' %} 
+
+
+                                <a href="{% url 'meus_anuncios' %}" class="link">Meus Anúncios</a>
+                                <a href="{% url 'anunciar' %}" class="link">Anunciar</a>
+
+                            {%endif%}
+
+
+                                
+                        <a href="{% url 'logout' %}" class="link">Deslogar</a>
+                        
+                    {%else%}
+                        <a href="{% url 'quest' %}" class="link">Cadastrar</a>
+                        <a href="{% url 'login' %}" class="link">Logar</a>
+                    {%endif%}
+                </div>
+            </li>
+        </ul>
+    </header>
+    <main>
+        <div class="anuncios">
+            {% if user.is_authenticated %}
+                <div class="slides">
+                    <div class="drop">
+                        <ul class="menu">
+
+                            <li><a href="{% url 'sobre' %}">Sobre</a></li>
+                                  <li class="genre"><a href="#">Filtros</a>
+                                     <ul class= "dropdown">
+                                          <li><a href="#">Plastico</a></li>
+                                          <li><a href="#">Papel</a></li>
+                                          <li><a href="#">Vidro</a></li>
+                                          <li href=""><a href="">Metal</a></li>
+                                          <li href=""><a href="">Orgânico</a></li>
+                                        </ul>
+                                </li>
+                    </div>
+                </div>
+
+
+                {%for x in response%}
+                    <div class="infos">
+                        {% if x.seg == 'False'%}
+                            {% if check == 'True' %}
+                                <img src="{% static 'img/google-maps.png' %}" alt="" class="google">
+                                <h3>O anunciante preferiu <br> não identificar sua localização</h3>
+                            {%else%}
+                                <div class="mapouter"><div class="gmap_canvas">
+                                    <iframe width="400" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q={{x.logradouro}}%20{{x.nome_da_rua}},{{x.bairro}}&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                                    <a href="https://123movies-to.org"></a><br>
+                                    <style>.mapouter{position:relative;text-align:right;height:500px;width:400px;}</style>
+                                    <a href="https://www.embedgooglemap.net">google maps html widget</a>
+                                    <style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:400px;border-radius: 22px;margin-top: 20px;}</style>
+                                </div>
+                                </div>
+                            {%endif%}
+                        {%else%}
+                            <div class="mapouter"><div class="gmap_canvas">
+                                <iframe width="400" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q={{x.logradouro}}%20{{x.nome_da_rua}},{{x.bairro}}&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                                <a href="https://123movies-to.org"></a><br>
+                                <style>.mapouter{position:relative;text-align:right;height:500px;width:400px;}</style>
+                                <a href="https://www.embedgooglemap.net" class="link">google maps html widget</a>
+                                <style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:400px;border-radius: 22px;margin-top: 20px;}</style>
+                            </div>
+                            </div>
+                        {%endif%}
+                        <h2 class="anun">Anunciante <br> {{x.usuario}}</h2>
+                        {% if x.seg == 'False'%}
+                            {% if check == 'True'%}
+                            {%else%}
+                                <h3>endereço:{{x.logradouro}} {{x.nome_da_rua}},{{x.bairro}}</h3>
+                            {%endif%}
+                        {%else%}
+                            <h3>endereço <br> {{x.logradouro}} {{x.nome_da_rua}},{{x.bairro}}</h3>
+                        {%endif%}
+                        <h3>{{x.numero}}</h3>
+                        <H3>tipo de lixo <br> {{x.tipo}}</H3>
+                        <h3>descrição:{{x.desc}}</h3>
+                    </div>
+
+                {%endfor%} 
+
+            {%else%}
+
+            <div class="anuncios">
+                <h1 class="sobre">Sobre o projeto</h1>
+                <div class="project">
+                    
+                    <img src="https://www.sescooprs.coop.br/app/uploads/2020/06/2020-06-05-cooperativas-desenvolvem-acoes-meio-ambiente-2-730x440.png" alt="" class="imagem">
+                    <p>O projeto busca comunicar pessoas que separam seu lixo categoricamente, <br>
+                         como empresas de coleta seletiva que tem dificuldade em encontrar esses tipos de matéria, facilitando a comunicação entre esses dois extremos.</p>
+                </div>
+    
+        
+                <h1>Implementações futuras</h1>
+                <div class="project">
+                    <img src="https://fia.com.br/blog/wp-content/uploads/2019/09/meio-ambiente-o-que-e-importancia-composicao-presxervacao-730x483.jpg" alt="" class="ing">
+                    <p>Chat de texto, Cadastro de coletores independentes e cooperativas, barra de busca, mapa totalmente interativo com o sistema de gps</p>
+                </div>
+    
+                <h1>Problemática</h1>
+                <div class="project">
+                    
+                    <img src="https://fabiobarros.com/wp-content/uploads/2020/09/img-projeto-municipal-de-desenvolvimento-meio-ambiente.jpg" alt="" class="imagem">
+                    <p>Empresas que têm dificuldade em achar áreas estratégicas para atuar por ser um nicho, já os anunciantes têm dificuldade em encontrar empresas atuantes na área, com o aplicativo totalmente gratuito os dois lados seriam beneficiados podendo se comunicar de forma fácil e rápida
+                    </p>
+                </div>
+            </div>
+
+            {%endif%}   
+        </div>
+    </main>
+</body>
+</html>

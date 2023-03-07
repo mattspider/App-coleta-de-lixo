@@ -1,0 +1,55 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/quest.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    
+
+        <header>
+            <ul>
+                <li>
+                    <img src="{% static 'img/logo.png'%}" alt="">
+    
+                    <div class="options">
+                        <a href="{% url 'main' %}">Pagina inicial</a>
+                        <a href="{% url 'login' %}">Logar</a>
+                    </div>
+                </li>
+            </ul>
+        </header>
+    
+        <div class="container">
+    
+            <div class="header">
+                <h2>Criar uma conta</h2>
+            </div>
+            
+            <form id="form" class="form" method="POST">{% csrf_token %}
+    
+                <div class="form-control">
+                    <label for="password-confirmation">Tipo de Usuário</label>
+                    <select name="resposta" id="resposta">
+                        <option value="empresa">Empresa Coletora</option>
+                        <option value="anunciante">Anunciante</option>
+                    </select>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <i class="fas fa-check-circle"></i>
+    
+                </div>
+    
+                <button type="submit">Enviar</button>
+            </form>
+            <script src="https://kit.fontawesome.com/a5d741ba54.js" crossorigin="anonymous"></script>
+            <script src="javascript.js"></script>
+        </div>
+    
+        
+
+</body>
+</html>

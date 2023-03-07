@@ -1,0 +1,107 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/anunciar.css' %}">
+    <title>Document</title>
+</head>
+<body>
+
+    <header>
+        <ul>
+            <li>
+                <img src="{% static 'img/logo.png'%}" alt="">
+
+                <div class="options">
+                    <a href="{% url 'main' %}">Pagina inicial</a>
+                    <a href="{% url 'meus_anuncios' %}">Meus Anúncios</a>
+                    <a href="{% url 'logout' %}">Deslogar</a>
+                </div>
+            </li>
+        </ul>
+    </header>
+
+    <div class="quadrado">
+        <div class="container">
+            <div class="header">
+                <h2>Anunciar</h2>
+            </div>
+            
+            <form id="form" class="form" method="POST">{% csrf_token %}
+                <div class="form-control ">
+                    <label for="username">Logradouro</label>
+                    <input type="text" name="logradouro" id="logradouro" placeholder="Digite o logradouro(Rua,Servidão...)">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <i class="fas fa-check-circle"></i>
+                </div>
+    
+    
+                <div class="form-control">
+                    <label for="text">Nome da rua</label>
+                    <input type="text" id="rua" name="rua" placeholder="Digite o nome da rua....">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <i class="fas fa-check-circle"></i>
+
+                </div>
+
+                <div class="form-control">
+                    <label for="text">Bairro</label>
+                    <input type="text" id="bairro" name="bairro" placeholder="Digite o nome do seu bairro....">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <i class="fas fa-check-circle"></i>
+
+                </div>
+
+                <div class="form-control">
+                    <label for="text">Contato</label>
+                    <input type="number" id="numero" name="numero" placeholder="Digite seu numero para contato....">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <i class="fas fa-check-circle"></i>
+
+                </div>
+
+                <div class="form-control">
+                    <label for="text">Tipo de lixo</label>
+                    <select name="tipo" id="">
+                        <option value="Orgânico">Orgânico</option>
+                        <option value="Metal">Metal</option>
+                        <option value="Vidro">Vidro</option>
+                        <option value="Papel">Papel</option>
+                        <option value="Plastico">Plastico</option>
+                    </select>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <i class="fas fa-check-circle"></i>
+                </div>
+
+                <div class="form-control">
+                    <label for="text">Descrição</label>
+                    <input type="text" id="desc" name="desc" placeholder="Digite seu numero para contato....">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <i class="fas fa-check-circle"></i>
+
+                </div>
+
+                <div class="form-control">
+                    <select name="seguranca" id="">
+                        <option value="True">Exibir Endereço</option>
+                        <option value="False">não exibir endereço</option>
+                    </select>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <i class="fas fa-check-circle"></i>
+
+                </div>
+    
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    
+        <script src="https://kit.fontawesome.com/a5d741ba54.js" crossorigin="anonymous"></script>
+        
+    </div>
+
+</body>
+</html>

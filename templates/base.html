@@ -1,0 +1,38 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela inicial</title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <link rel="stylesheet" href="{%static 'javascript.js'%}">
+</head>
+<body>
+    <header>
+        <ul>
+            <li>
+                <img src="{% static 'img/logo.png'%}" alt="">
+
+                <div class="search">
+                    <form action="">
+                        <input type="text" id="txtBusca" placeholder="Buscar..."/>
+                        <button type="submit">
+                            <i class="fa-solid fa-magnifying-glass">Buscar</i>
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="options">
+                    <a href="{% url 'main' %}">Pagina inicial</a>
+                    <a href="{% url 'login' %}">Logar</a>
+                </div>
+            </li>
+        </ul>
+    </header>
+    {%block 'main'%}
+    {%endblock%}
+</body>
+</html>

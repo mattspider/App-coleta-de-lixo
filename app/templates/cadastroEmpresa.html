@@ -1,0 +1,47 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/cadastroEmpresa.css' %}">
+    <title>Document</title>
+</head>
+<body>
+
+    <header>
+        <ul>
+            <li>
+                <img src="{% static 'img/logo.png'%}" alt="">
+
+                <div class="options">
+                    <a href="{% url 'main' %}">Pagina inicial</a>
+                    <a href="{% url 'login' %}">Logar</a>
+
+                </div>
+            </li>
+        </ul>
+    </header>
+
+    {% if messages %}
+        {% for message in messages %}
+            <script>alert("{{message}}");</script>
+        {% endfor %}
+    {% endif %}
+
+    <div class="infos">
+        <form action="" method="POST" class="formulario">{% csrf_token %}
+            <h2>Cadastro de empresa</h2>
+            <label for="">Cnpj</label>
+            <input type="text" name="cnpj" class="inp" placeholder="insira o Cnpj....">
+            <label for="">Senha</label>
+            <input type="password" name="senha" class="inp" placeholder="Insira sua senha...">
+            <label for="">repita a senha</label>
+            <input type="password" name="r_senha" class="inp" placeholder="insira sua senha novamente....">
+            <button type="submit" class="sub">Cadastrar</button>
+        </form>
+    </div>
+</body>
+</html>

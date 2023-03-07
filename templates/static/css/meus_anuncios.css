@@ -1,0 +1,129 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,400&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #394032;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;;
+}
+
+
+ul li {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    font-size: 22px;
+    background-image:linear-gradient(40deg,#8dab87,#394032);
+    align-items: center;
+}
+
+li img{
+    height: 64px;
+    width: 64px;
+    border-radius: 4px;
+}
+
+.op{
+    text-decoration: none;
+    color: white;
+    margin: 0 15px;
+    border-right: solid #ffe342;
+    padding-right: 22px;
+}
+
+img{
+    height: 240px;
+    width: 400px;
+}
+
+
+.anuncios{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+}
+
+.infos{
+    background-color:#8dab87  ;
+    display: flex;
+    width: 440px;
+    margin: 5px;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    border-radius: 22px;
+}
+
+.infos > h2{
+    margin: 5px;
+    background-color: #394032;
+    width: 400px;
+    color: white;
+    border-radius: 22px;
+}
+
+.infos > h3{
+   
+    margin: 15px;
+    color: white;
+    border-radius: 22px;
+}
+
+
+button{
+    
+    text-decoration: none;
+    background-color: none;
+    border-radius: 5px;
+   
+}
+
+
+
+
+p{
+color: aliceblue;
+margin-left:12px ;
+text-align:left;
+font-size: 25px;
+}
+
+h1{
+    color: #8dab87;
+}
+
+img{
+    height: 350px;
+    width: 450px;
+    border-radius: 6px;
+}
+
+.remove{
+    background-color: #cfee9e;
+    border: none;
+    color: rgb(255, 255, 255);
+    width: 50%;
+    border-radius: 10px;
+    padding: 10px;
+}
