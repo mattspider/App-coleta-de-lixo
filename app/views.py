@@ -253,7 +253,7 @@ def meus_anuncios(request):
 @login_required(redirect_field_name='login/') 
 def remover_anuncio(request,id):
 
-    requests.delete(url = f'http://127.0.0.1:8000/anuncio/{id}')
+    requests.delete(url = f'http://127.0.0.1:8000/anuncio/{id}/')
 
     return redirect('meus_anuncios')
 
